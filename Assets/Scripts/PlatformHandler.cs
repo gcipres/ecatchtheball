@@ -36,7 +36,7 @@ public class PlatformHandler : MonoBehaviour {
     }
 
     private void SetRandomColor() {
-        int spriteIndex = Random.Range(0, sprites.Length - 1);
+        int spriteIndex = Random.Range(0, sprites.Length);
         Image image = GetComponent<Image>();
         image.sprite = sprites[spriteIndex];
     }

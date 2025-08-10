@@ -740,7 +740,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.03529412, g: 0.03529412, b: 0.03529412, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap screen to rotate platform
+  m_text: Tap screen to rotate the platform
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1488,6 +1488,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f4369845a4d804d658d080a026911e83, type: 3}
   - {fileID: 21300000, guid: dfe838be5fc4d4eaabb1b8628209e9ce, type: 3}
   - {fileID: 21300000, guid: 629b07acfa41b4b4a93d7f3b6b6676f0, type: 3}
+  - {fileID: 21300000, guid: 55059485a711640789d97740c454c5a8, type: 3}
 --- !u!1 &1210261549
 GameObject:
   m_ObjectHideFlags: 0
