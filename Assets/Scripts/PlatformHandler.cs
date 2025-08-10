@@ -36,12 +36,13 @@ public class PlatformHandler : MonoBehaviour {
     }
 
     private void SetRandomColor() {
-        int spriteIndex = Random.Range(0, sprites.Length);
+        int spriteIndex = Random.Range(0, sprites.Length - 1);
         Image image = GetComponent<Image>();
         image.sprite = sprites[spriteIndex];
     }
 
     private void HandleTouchOrClick() {
-        targetRotation *= Quaternion.Euler(0f, 0f, rotationAngle);;
+        int randomRotation = Random.Range(0, 2);
+        targetRotation *= Quaternion.Euler(0f, 0f, randomRotation == 0 ? rotationAngle : -rotationAngle);
     }
 }
