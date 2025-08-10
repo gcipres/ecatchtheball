@@ -17,7 +17,7 @@ public class BallSpawner : MonoBehaviour {
     }
 
     void Update() {
-        if (!spawned) {
+        if (!spawned && GameManager.gameState == GameState.Playing) {
             SpawnBall();
             spawned = true;
         }

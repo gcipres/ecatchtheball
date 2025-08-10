@@ -38,14 +38,16 @@ public class BallHandler : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag(goodColliderTag)) {
             // WIN ONE POINT
-            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
-            scoreManager.AddOnePoint();
-            
+            ScoreManager.score++;            
             BallSpawner.spawned = false;
             Destroy(gameObject);
         } else if (other.gameObject.CompareTag(badColliderTag)) {
             // GAME OVER
+            Handheld.Vibrate();
             Destroy(gameObject);
+            GameManager.gameState = GameState.GameOver;
+            PlatformHandler platformHandler = FindObjectOfType<PlatformHandler>();
+            platformHandler.ResetRotation();
         }
     }
 }

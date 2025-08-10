@@ -4,7 +4,8 @@ using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
-    private int score;
+    public static int score;
+
     private bool movementChanged;
 
     void Start() {
@@ -13,19 +14,15 @@ public class ScoreManager : MonoBehaviour {
     }
 
     void Update() {
-        if (score > 0 && score % 5 == 0) {
+        if (score > 0 && score % 2 == 0) {
             if (!movementChanged) {
-                BallSpawner.movementSpeedX *= 1.15f;
-                BallSpawner.movementSpeedY *= 1.15f;
+                BallSpawner.movementSpeedX += 22f;
+                BallSpawner.movementSpeedY += 33f;
                 movementChanged = true;
             }
         } else 
             movementChanged = false;
-    }
-
-    public void AddOnePoint() {
-        score++;
-
+        
         TextMeshProUGUI tmp = GetComponent<TextMeshProUGUI>();
         tmp.text = score.ToString();
     }
