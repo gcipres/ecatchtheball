@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlatformHandler : MonoBehaviour {
     [SerializeField] private float rotationSpeed = 810f; 
+    [SerializeField] private Sprite[] sprites; 
     
     private float rotationAngle = 180f;
     private Quaternion targetRotation;
 
     void Start() {
+        SetRandomColor();
         targetRotation = transform.rotation;
     }
 
@@ -17,22 +20,28 @@ public class PlatformHandler : MonoBehaviour {
                 Touch touch = Input.GetTouch(0);
 
                 if (touch.phase == TouchPhase.Began)
-                    HandleTouchOrClick(touch.position);
+                    HandleTouchOrClick();
             }
             else if (Input.GetMouseButtonDown(0))
-                HandleTouchOrClick(Input.mousePosition);
+                HandleTouchOrClick();
 
             if (transform.rotation != targetRotation)
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
-    private void HandleTouchOrClick(Vector2 screenPos) {
-        float screenMidX = Screen.width / 2f;
-        targetRotation *= Quaternion.Euler(0f, 0f, rotationAngle);;
+    public void ResetPlatformValues() {
+        targetRotation = Quaternion.Euler(0f, 0f, 0f);
+        SetRandomColor();
     }
 
-    public void ResetRotation() {
-        targetRotation = Quaternion.Euler(0f, 0f, 0f);
+    private void SetRandomColor() {
+        int spriteIndex = Random.Range(0, sprites.Length);
+        Image image = GetComponent<Image>();
+        image.sprite = sprites[spriteIndex];
+    }
+
+    private void HandleTouchOrClick() {
+        targetRotation *= Quaternion.Euler(0f, 0f, rotationAngle);;
     }
 }

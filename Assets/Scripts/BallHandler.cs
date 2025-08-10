@@ -48,7 +48,7 @@ public class BallHandler : MonoBehaviour {
             GameManager.gameState = GameState.GameOver;
             BallSpawner.movementSpeed = 600f;
             PlatformHandler platformHandler = FindObjectOfType<PlatformHandler>();
-            platformHandler.ResetRotation();
+            platformHandler.ResetPlatformValues();
         }
     }
 }
