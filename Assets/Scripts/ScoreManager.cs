@@ -14,10 +14,9 @@ public class ScoreManager : MonoBehaviour {
     }
 
     void Update() {
-        if (score > 0 && score % 2 == 0) {
+        if (BallSpawner.movementSpeed < 1500f && score > 0 && score % 2 == 0) {
             if (!movementChanged) {
-                BallSpawner.movementSpeedX += 22f;
-                BallSpawner.movementSpeedY += 33f;
+                BallSpawner.movementSpeed += 99f;
                 movementChanged = true;
             }
         } else 

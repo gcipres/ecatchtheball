@@ -3,16 +3,14 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour {
 
     public static bool spawned = false;
-    public static float movementSpeedX = 200f;
-    public static float movementSpeedY = 300f;
+    public static float movementSpeed;
 
     public GameObject ballPrefab;
 
     private RectTransform canvasRect;
     
     void Start() {
-        movementSpeedX = 200f;
-        movementSpeedY = 300f;
+        movementSpeed = 600f;
         canvasRect = GetComponent<RectTransform>();
     }
 
@@ -24,10 +22,9 @@ public class BallSpawner : MonoBehaviour {
     }
 
     void SpawnBall() {
-        int randomEdge = Random.Range(0, 4);
+        int randomEdge = Random.Range(0, 2);
         Vector2 spawnPosition = Vector2.zero;
         Vector2 targetPosition = Vector2.zero;
-        float movementSpeed = 0f;
 
         float canvasWidth = canvasRect.sizeDelta.x;
         float canvasHeight = canvasRect.sizeDelta.y;
@@ -36,22 +33,10 @@ public class BallSpawner : MonoBehaviour {
             case 0: // Arriba
                 spawnPosition = new Vector2(0f, canvasHeight);
                 targetPosition = new Vector2(spawnPosition.x, 0f);
-                movementSpeed = movementSpeedY;
                 break;
             case 1: // Abajo
                 spawnPosition = new Vector2(0f, -canvasHeight);
                 targetPosition = new Vector2(spawnPosition.x, canvasHeight);
-                movementSpeed = movementSpeedY;
-                break;
-            case 2: // Izquierda
-                spawnPosition = new Vector2(-canvasWidth, 0f);
-                targetPosition = new Vector2(canvasWidth, spawnPosition.y);
-                movementSpeed = movementSpeedX;
-                break;
-            case 3: // Derecha
-                spawnPosition = new Vector2(canvasWidth, 0f);
-                targetPosition = new Vector2(0f, spawnPosition.y);
-                movementSpeed = movementSpeedX;
                 break;
         }
         

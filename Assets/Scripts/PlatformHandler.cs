@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class PlatformHandler : MonoBehaviour {
     [SerializeField] private float rotationSpeed = 810f; 
     
-    private float rotationAngle = 90f;
+    private float rotationAngle = 180f;
     private Quaternion targetRotation;
 
     void Start() {
@@ -29,11 +29,7 @@ public class PlatformHandler : MonoBehaviour {
 
     private void HandleTouchOrClick(Vector2 screenPos) {
         float screenMidX = Screen.width / 2f;
-
-        if (screenPos.x < screenMidX)
-            targetRotation *= Quaternion.Euler(0f, 0f, rotationAngle);
-        else
-            targetRotation *= Quaternion.Euler(0f, 0f, -rotationAngle);
+        targetRotation *= Quaternion.Euler(0f, 0f, rotationAngle);;
     }
 
     public void ResetRotation() {
