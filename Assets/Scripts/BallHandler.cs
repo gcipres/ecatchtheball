@@ -46,6 +46,7 @@ public class BallHandler : MonoBehaviour {
             Handheld.Vibrate();
             Destroy(gameObject);
             GameManager.gameState = GameState.GameOver;
+            BallSpawner.movementSpeed = 600f;
             PlatformHandler platformHandler = FindObjectOfType<PlatformHandler>();
             platformHandler.ResetRotation();
         }
