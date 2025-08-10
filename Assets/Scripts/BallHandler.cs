@@ -49,6 +49,8 @@ public class BallHandler : MonoBehaviour {
             BallSpawner.movementSpeed = 600f;
             PlatformHandler platformHandler = FindObjectOfType<PlatformHandler>();
             platformHandler.ResetPlatformValues();
+
+            BannerAds.ShowBanner();
         }
     }
 }

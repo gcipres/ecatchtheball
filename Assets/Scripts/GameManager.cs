@@ -27,5 +27,7 @@ public class GameManager : MonoBehaviour {
         ScoreManager.score = 0;
         BallSpawner.spawned = false;
         gameState = GameState.Playing;
+
+        BannerAds.HideBanner();
     }
 }
