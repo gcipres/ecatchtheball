@@ -3,14 +3,16 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour {
 
     public static bool spawned = false;
+    public static float movementSpeedX = 200f;
+    public static float movementSpeedY = 300f;
 
     public GameObject ballPrefab;
-    public float movementSpeedX = 200f;
-    public float movementSpeedY = 300f;
 
     private RectTransform canvasRect;
     
     void Start() {
+        movementSpeedX = 200f;
+        movementSpeedY = 300f;
         canvasRect = GetComponent<RectTransform>();
     }
 
