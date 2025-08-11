@@ -52,7 +52,7 @@ public class BallHandler : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag(goodColliderTag)) {
             // WIN ONE POINT
-            ScoreManager.score++;            
+            GameManager.score++;
             BallSpawner.spawned = false;
             Destroy(gameObject);
         } else if (other.gameObject.CompareTag(badColliderTag)) {
