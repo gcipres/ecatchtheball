@@ -57,7 +57,10 @@ public class BallHandler : MonoBehaviour {
             Destroy(gameObject);
         } else if (other.gameObject.CompareTag(badColliderTag)) {
             // GAME OVER
-            Handheld.Vibrate();
+            #if UNITY_ANDROID || UNITY_IPHONE
+                Handheld.Vibrate();
+            #endif
+
             Destroy(gameObject);
             GameManager.gameState = GameState.GameOver;
             BallSpawner.movementSpeed = 600f;
