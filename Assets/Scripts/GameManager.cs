@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum GameState { Start, Tutorial, Playing, GameOver, Share }
+public enum GameState { Start, Tutorial, Playing, GameOver }
 
 public class GameManager : MonoBehaviour {
     public static GameState gameState;
