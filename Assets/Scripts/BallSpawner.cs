@@ -10,7 +10,7 @@ public class BallSpawner : MonoBehaviour {
     private RectTransform canvasRect;
     
     void Start() {
-        movementSpeed = 600f;
+        movementSpeed = 750f;
         canvasRect = GetComponent<RectTransform>();
     }
 
